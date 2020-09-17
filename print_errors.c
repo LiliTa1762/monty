@@ -3,7 +3,7 @@
 /**
  * print_error - Function to print errors
  * @str: string to print the error
- * 
+ *
  * Return: the address of new element, or NULL
 */
 void print_error(char *str)
