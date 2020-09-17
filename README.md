@@ -18,57 +18,55 @@ What you should learn from this project:
 
 ---
 
-### [0. push]
+### 0. push
 * Pushes an element to the stack(./1000-holberton.bf)
 
-### [0.1 pall]
+### 0.1 pall
 * Prints all the values on the stack, starting from the top of the stack
 
-### [1. pint](./1001-add.bf)
+### 1. pint
 * Prints the value at the top of the stack
 
-
-### [2. pop](./1002-mul.bf)
+### 2. pop
 * Removes the top element of the stack
 
-
-### [3. swap](./1003-mul.bf)
+### 3. swap
 * Swaps the top two elements of the stack
 
-### [4. add]
+### 4. add
 * Adds the top two elements of the stack
 
-### [5. nop]
+### 5. nop
 * Doesn't do anything
 
-### [6. sub]
+### 6. sub
 * Subtracts the top element of the stack from the second top one
 
-### [7. div]
+### 7. div
 * Divides the second top element of the stack by the top element 
 
-### [8. mul]
+### 8. mul
 * Multiplies the second top element of the stack with the top one
 
-### [9. mod]
+### 9. mod
 * Computes the rest of the division of the second top element by the top one
 
-### [10. pchar]
+### 10. pchar
 * Prints the chat at the top of the stack
 
-### [11. pstr]
+### 11. pstr
 * Prints the string starting at the top of the stack
 
-### [12. rotl]
+### 12. rotl
 * Rotates the stack to the top
 
-### [13. rotr]
+### 13. rotr
 * Rotates the stack to the bottom
 
-### [14. stack]
+### 14. stack
 * Sets the format of the data to a stack (LIFO)
 
-### [15. queue]
+### 15. queue
 * Sets the format of the data to a queue (FIFO)
 
 
