@@ -14,6 +14,7 @@ instruction_t opcodes[] = {
 	{"add", _add},
 	{NULL, NULL}
 };
+FILE *fp;
 
 /**
  * main - calls to the read_file function
@@ -31,6 +32,9 @@ int main(int argc, char **argv)
 
 	read_file(ex_file);
 
+	free_stack(ex_stack);
+	free(buff);
+
 	return (0);
 }
 
@@ -44,7 +48,6 @@ int read_file(char *filename)
 {
 	size_t buff_size = 0;
 	ssize_t gline = 0;
-	FILE *fp;
 	char *token;
 
 	fp = fopen(filename, "r");
@@ -66,7 +69,6 @@ int read_file(char *filename)
 		gline = getline(&buff, &buff_size, fp);
 	}
 
-	free(buff);
 	fclose(fp);
 
 	return (0);

@@ -3,9 +3,9 @@
 /**
  * print_error - Function to print errors
  * @str: string to print the error
- *
+ * 
  * Return: the address of new element, or NULL
- */
+*/
 void print_error(char *str)
 {
 	if (strcmp(str, "monty_file") == 0)
@@ -27,6 +27,10 @@ void print_error(char *str)
 	else if (strcmp(str, "can't_add") == 0)
 		fprintf(stderr, "L%d: can't add, stack too short\n", ex_line_number);
 
+	free_stack(ex_stack);
+	free(buff);
+	fclose(fp);
+
 	exit(EXIT_FAILURE);
 }
 
@@ -34,7 +38,7 @@ void print_error(char *str)
  * to_verify - to verify the status of the struct
  *
  * Return: an int, 0 for stack or 1 for queue
- */
+*/
 int to_verify(void)
 {
 	if (ex_status == 's')

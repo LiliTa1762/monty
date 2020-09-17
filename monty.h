@@ -48,6 +48,7 @@ extern int ex_line_number;
 extern char *ex_opcode;
 extern char *ex_file;
 extern instruction_t opcodes[];
+extern FILE *fp;
 
 /* MAIN */
 int read_file(char *filename);
