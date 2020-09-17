@@ -53,3 +53,5 @@ What you should learn from this project:
 
 ## Author
 * **Silena Restrepo** - [silenarestrepo](https://github.com/silenarestrepo)
+* **Francisco Guzman** - [I7RANK](https://github.com/I7RANK)
+* **Lilibeth Tabares** - [LiliTa1762](https://github.com/LiliTa1762)
