@@ -3,13 +3,18 @@
 /**
  * print_error - Function to print errors
  * @str: string to print the error
- *
+ * 
  * Return: the address of new element, or NULL
 */
 void print_error(char *str)
 {
+	int m_file = 0;
+
 	if (strcmp(str, "monty_file") == 0)
+	{
 		fprintf(stderr, "Error: USAGE: monty file\n");
+		m_file = 1;
+	}
 	else if (strcmp(str, "can't_open") == 0)
 		fprintf(stderr, "Error: Can't open file %s\n", ex_file);
 	else if (strcmp(str, "invalid_instruction") == 0)
@@ -29,7 +34,8 @@ void print_error(char *str)
 
 	free_stack(ex_stack);
 	free(buff);
-	fclose(fp);
+	if (m_file)
+		fclose(fp);
 
 	exit(EXIT_FAILURE);
 }
