@@ -12,6 +12,9 @@ instruction_t opcodes[] = {
 	{"pint", _pint}, {"pop", _pop},
 	{"swap", _swap},
 	{"add", _add},
+	{"sub", _sub},
+	{"div", _div},
+	{"mul", _mul},
 	{NULL, NULL}
 };
 FILE *fp;
