@@ -1,23 +1,23 @@
 #include "monty.h"
 
-char ex_status = 's';
-stack_t *ex_stack = NULL;
-stack_t *ex_queue = NULL;
-char *buff = NULL;
-int ex_line_number = 0;
-char *ex_opcode = NULL;
-char *ex_file = NULL;
-instruction_t opcodes[] = {
-	{"push", _push}, {"pall", _pall},
-	{"pint", _pint}, {"pop", _pop},
-	{"swap", _swap},
-	{"add", _add},
-	{"sub", _sub},
-	{"div", _div},
-	{"mul", _mul},
-	{NULL, NULL}
-};
-FILE *fp;
+/**
+ * init_varr - initializes the variables
+ * @opcod: the structure that contains the opcommands
+ *
+ * Return: void
+*/
+void init_varr(instruction_t *opcod)
+{
+	gb.ex_status = 's';
+	gb.ex_stack = NULL;
+	gb.ex_queue = NULL;
+	gb.buff = NULL;
+	gb.ex_line_number = 0;
+	gb.ex_opcode = NULL;
+	gb.ex_file = NULL;
+	gb.opcodes = opcod;
+	gb.fp = NULL;
+}
 
 /**
  * main - calls to the read_file function
@@ -28,15 +28,24 @@ FILE *fp;
 */
 int main(int argc, char **argv)
 {
+	instruction_t opcodes[] = {
+		{"push", _push}, {"pall", _pall},
+		{"pint", _pint}, {"pop", _pop},
+		{"swap", _swap}, {"add", _add},
+		{"sub", _sub}, {"div", _div},
+		{"mul", _mul}, {NULL, NULL}
+	};
+
+	init_varr(opcodes);
 	if (argc != 2)
 		print_error("monty_file");
 
-	ex_file = argv[1];
+	gb.ex_file = argv[1];
 
-	read_file(ex_file);
+	read_file(gb.ex_file);
 
-	free_stack(ex_stack);
-	free(buff);
+	free_stack(gb.ex_stack);
+	free(gb.buff);
 
 	return (0);
 }
@@ -53,26 +62,26 @@ int read_file(char *filename)
 	ssize_t gline = 0;
 	char *token;
 
-	fp = fopen(filename, "r");
-	if (!fp)
+	gb.fp = fopen(filename, "r");
+	if (!gb.fp)
 		print_error("can't_open");
 
-	gline = getline(&buff, &buff_size, fp);
+	gline = getline(&gb.buff, &buff_size, gb.fp);
 
 	while (gline >= 0)
 	{
-		ex_line_number++;
-		token = strtok(buff, " \t\n");
-		ex_opcode = token;
+		gb.ex_line_number++;
+		token = strtok(gb.buff, " \t\n");
+		gb.ex_opcode = token;
 		if (token != NULL)
 		{
 			if ((strcmp(token, "nop")) != 0)
-				find_opcode(opcodes, token);
+				find_opcode(gb.opcodes, token);
 		}
-		gline = getline(&buff, &buff_size, fp);
+		gline = getline(&gb.buff, &buff_size, gb.fp);
 	}
 
-	fclose(fp);
+	fclose(gb.fp);
 
 	return (0);
 }
@@ -94,7 +103,7 @@ void find_opcode(instruction_t *opcodes, char *str)
 	{
 		if (strcmp(str, opcodes[i].opcode) == 0)
 		{
-			opcodes[i].f(&ex_stack, ex_line_number);
+			opcodes[i].f(&gb.ex_stack, gb.ex_line_number);
 			return;
 		}
 	}

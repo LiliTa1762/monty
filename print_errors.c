@@ -16,35 +16,37 @@ void print_error(char *str)
 		m_file = 1;
 	}
 	else if (strcmp(str, "can't_open") == 0)
-		fprintf(stderr, "Error: Can't open file %s\n", ex_file);
+		fprintf(stderr, "Error: Can't open file %s\n", gb.ex_file);
 	else if (strcmp(str, "invalid_instruction") == 0)
-		fprintf(stderr, "L%d: unknown instruction %s\n", ex_line_number, ex_opcode);
+	{
+		fprintf(stderr, "L%d: unknown instruction", gb.ex_line_number);
+		fprintf(stderr, " %s\n", gb.ex_opcode);
+	}
 	else if (strcmp(str, "can't_malloc") == 0)
 		fprintf(stderr, "Error: malloc failed\n");
 	else if (strcmp(str, "int_is_not_int") == 0)
-		fprintf(stderr, "L%d: usage: push integer\n", ex_line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", gb.ex_line_number);
 	else if (strcmp(str, "can't_pint") == 0)
-		fprintf(stderr, "L%d: can't pint, stack empty\n", ex_line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", gb.ex_line_number);
 	else if (strcmp(str, "can't_pop") == 0)
-		fprintf(stderr, "L%d: can't pop an empty stack\n", ex_line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", gb.ex_line_number);
 	else if (strcmp(str, "can't_swap") == 0)
-		fprintf(stderr, "L%d: can't swap, stack too short\n", ex_line_number);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", gb.ex_line_number);
 	else if (strcmp(str, "can't_add") == 0)
-		fprintf(stderr, "L%d: can't add, stack too short\n", ex_line_number);
+		fprintf(stderr, "L%d: can't add, stack too short\n", gb.ex_line_number);
 	else if (strcmp(str, "can't_sub") == 0)
-		fprintf(stderr, "L%d: can't sub, stack too short\n", ex_line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", gb.ex_line_number);
 	else if (strcmp(str, "can't_div") == 0)
-		fprintf(stderr, "L%d: can't div, stack too short\n", ex_line_number);
+		fprintf(stderr, "L%d: can't div, stack too short\n", gb.ex_line_number);
 	else if (strcmp(str, "can't_div_1") == 0)
-		fprintf(stderr, "L%d: division by zero\n", ex_line_number);
+		fprintf(stderr, "L%d: division by zero\n", gb.ex_line_number);
 	else if (strcmp(str, "can't_mul") == 0)
-		fprintf(stderr, "L%d: can't mul, stack too short\n", ex_line_number);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", gb.ex_line_number);
 
-	free_stack(ex_stack);
-	free(buff);
+	free_stack(gb.ex_stack);
+	free(gb.buff);
 	if (m_file)
-		fclose(fp);
-
+		fclose(gb.fp);
 	exit(EXIT_FAILURE);
 }
 
@@ -55,7 +57,7 @@ void print_error(char *str)
 */
 int to_verify(void)
 {
-	if (ex_status == 's')
+	if (gb.ex_status == 's')
 	{
 		return (1);
 	}

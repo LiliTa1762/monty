@@ -22,7 +22,7 @@ stack_t *add_right(stack_t **head, const int n)
 	if (*head == NULL)
 	{
 		(*head) = new;
-		ex_stack = new;
+		gb.ex_stack = new;
 		return (new);
 	}
 
@@ -49,8 +49,8 @@ stack_t *add_left(stack_t **head, const int n)
 	stack_t *new;
 
 	new = malloc(sizeof(stack_t));
-	if (new == NULL)
-		print_error("can't_malloc");
+		if (new == NULL)
+			print_error("can't_malloc");
 
 	new->n = n;
 
@@ -58,7 +58,7 @@ stack_t *add_left(stack_t **head, const int n)
 	new->prev = NULL;
 
 	if ((*head) == NULL)
-		ex_queue = new;
+		gb.ex_queue = new;
 
 	if ((*head) != NULL)
 		(*head)->prev = new;

@@ -43,7 +43,7 @@ What you should learn from this project:
 * Subtracts the top element of the stack from the second top one
 
 ### 7. div
-* Divides the second top element of the stack by the top element 
+* Divides the second top element of the stack by the top element
 
 ### 8. mul
 * Multiplies the second top element of the stack with the top one

@@ -40,15 +40,34 @@ typedef struct instruction_s
 } instruction_t;
 
 /* EXTERN VARIABLES */
-extern char ex_status;
-extern stack_t *ex_stack;
-extern stack_t *ex_queue;
-extern char *buff;
-extern int ex_line_number;
-extern char *ex_opcode;
-extern char *ex_file;
-extern instruction_t opcodes[];
-extern FILE *fp;
+/**
+ * struct varr - the struct with all variables
+ * @ex_status: s (stack mode) or q (queue mode) depending of the mode
+ * @ex_stack: pointer to the beginning or head of the linked list
+ * @ex_queue: pointer to the end or tail of the linked list
+ * @buff: the line to read
+ * @ex_line_number: where the instruction appears
+ * @ex_opcode: the command
+ * @ex_file: pointer file type
+ * @opcodes: struct to know what opcode to use
+ * @fp: the monty file to use
+ *
+*/
+typedef struct varr
+{
+	char ex_status;
+	stack_t *ex_stack;
+	stack_t *ex_queue;
+	char *buff;
+	int ex_line_number;
+	char *ex_opcode;
+	char *ex_file;
+	instruction_t *opcodes;
+	FILE *fp;
+} gb_t;
+
+extern gb_t gb;
+gb_t gb;
 
 /* MAIN */
 int read_file(char *filename);
