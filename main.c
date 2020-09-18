@@ -33,7 +33,9 @@ int main(int argc, char **argv)
 		{"pint", _pint}, {"pop", _pop},
 		{"swap", _swap}, {"add", _add},
 		{"sub", _sub}, {"div", _div},
-		{"mul", _mul}, {NULL, NULL}
+		{"mul", _mul}, {"stack", s_or_q},
+		{"queue", s_or_q},
+		{NULL, NULL}
 	};
 
 	init_varr(opcodes);
@@ -75,7 +77,7 @@ int read_file(char *filename)
 		gb.ex_opcode = token;
 		if (token != NULL)
 		{
-			if ((strcmp(token, "nop")) != 0)
+			if ((strcmp(token, "nop")) != 0 && token[0] != '#')
 				find_opcode(gb.opcodes, token);
 		}
 		gline = getline(&gb.buff, &buff_size, gb.fp);
