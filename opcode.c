@@ -6,7 +6,7 @@
  * @line_number: where the instructions appear
  *
  * Return: void
- */
+*/
 void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = NULL;
@@ -18,6 +18,10 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (token == NULL)
 	{
 		print_error("int_is_not_int");
+	}
+	if (token[0] == '-')
+	{
+		i++;
 	}
 
 	while (token[i])
@@ -34,7 +38,6 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (to_verify())
 	{
 		temp = add_left(&ex_stack, num);
-
 		if (temp != NULL)
 		{
 			ex_stack = temp;
@@ -55,7 +58,7 @@ void _push(stack_t **stack, unsigned int line_number)
  * @line_number: where the instructions appear
  *
  * Return: void
- */
+*/
 void _pall(stack_t **stack, unsigned int line_number)
 {
 	print_stack(ex_stack);
@@ -69,7 +72,7 @@ void _pall(stack_t **stack, unsigned int line_number)
  * @line_number: where the instructions appear
  *
  * Return: void
- */
+*/
 void _pint(stack_t **stack, unsigned int line_number)
 {
 	if (ex_stack == NULL || ex_queue == NULL)
@@ -94,7 +97,7 @@ void _pint(stack_t **stack, unsigned int line_number)
  * @line_number: where the instructions appear
  *
  * Return: void
- */
+*/
 void _pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = NULL;
@@ -142,7 +145,7 @@ void _pop(stack_t **stack, unsigned int line_number)
  * @line_number: where the instructions appear
  *
  * Return: void
- */
+*/
 void _swap(stack_t **stack, unsigned int line_number)
 {
 	int temp = 0;
