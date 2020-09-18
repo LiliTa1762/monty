@@ -3,7 +3,7 @@
 /**
  * print_error - Function to print errors
  * @str: string to print the error
- * 
+ *
  * Return: the address of new element, or NULL
 */
 void print_error(char *str)
@@ -31,6 +31,12 @@ void print_error(char *str)
 		fprintf(stderr, "L%d: can't swap, stack too short\n", ex_line_number);
 	else if (strcmp(str, "can't_add") == 0)
 		fprintf(stderr, "L%d: can't add, stack too short\n", ex_line_number);
+	else if (strcmp(str, "can't_sub") == 0)
+		fprintf(stderr, "L%d: can't sub, stack too short\n", ex_line_number);
+	else if (strcmp(str, "can't_div") == 0)
+		fprintf(stderr, "L%d: can't div, stack too short\n", ex_line_number);
+	else if (strcmp(str, "can't_mul") == 0)
+		fprintf(stderr, "L%d: can't mul, stack too short\n", ex_line_number);
 
 	free_stack(ex_stack);
 	free(buff);
