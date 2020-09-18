@@ -35,6 +35,8 @@ void print_error(char *str)
 		fprintf(stderr, "L%d: can't sub, stack too short\n", ex_line_number);
 	else if (strcmp(str, "can't_div") == 0)
 		fprintf(stderr, "L%d: can't div, stack too short\n", ex_line_number);
+	else if (strcmp(str, "can't_div_1") == 0)
+		fprintf(stderr, "L%d: division by zero\n", ex_line_number);
 	else if (strcmp(str, "can't_mul") == 0)
 		fprintf(stderr, "L%d: can't mul, stack too short\n", ex_line_number);
 
