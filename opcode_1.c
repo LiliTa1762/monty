@@ -20,6 +20,11 @@ void _add(stack_t **stack, unsigned int line_number)
 		print_error("can't_add");
 	}
 
+	if (ex_stack->n == 0 || ex_queue->n == 0)
+	{
+		print_error("can't_div_1");
+	}
+
 	if (to_verify())
 	{
 		ex_stack->next->n += ex_stack->n;
