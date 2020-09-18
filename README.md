@@ -19,7 +19,7 @@ What you should learn from this project:
 ---
 
 ### 0. push
-* Pushes an element to the stack(./1000-holberton.bf)
+* Pushes an element to the stack
 
 ### 0.1 pall
 * Prints all the values on the stack, starting from the top of the stack
