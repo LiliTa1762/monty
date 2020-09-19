@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 	init_varr(opcodes);
 	if (argc != 2)
 		print_error("monty_file");
-
+	printf("aronnessonserri\n");
 	gb.ex_file = argv[1];
 
 	read_file(gb.ex_file);

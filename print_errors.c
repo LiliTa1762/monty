@@ -8,13 +8,8 @@
 */
 void print_error(char *str)
 {
-	int m_file = 0;
-
 	if (strcmp(str, "monty_file") == 0)
-	{
 		fprintf(stderr, "Error: USAGE: monty file\n");
-		m_file = 1;
-	}
 	else if (strcmp(str, "can't_open") == 0)
 		fprintf(stderr, "Error: Can't open file %s\n", gb.ex_file);
 	else if (strcmp(str, "invalid_instruction") == 0)
@@ -43,9 +38,12 @@ void print_error(char *str)
 	else if (strcmp(str, "can't_mul") == 0)
 		fprintf(stderr, "L%d: can't mul, stack too short\n", gb.ex_line_number);
 
+	printf("aronnessonserri\n");
 	free_stack(gb.ex_stack);
+	printf("aronnessonserri\n");
 	free(gb.buff);
-	if (m_file)
+	printf("aronnessonserri\n");
+	if (gb.fp != NULL)
 		fclose(gb.fp);
 	exit(EXIT_FAILURE);
 }
