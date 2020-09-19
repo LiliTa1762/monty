@@ -38,11 +38,8 @@ void print_error(char *str)
 	else if (strcmp(str, "can't_mul") == 0)
 		fprintf(stderr, "L%d: can't mul, stack too short\n", gb.ex_line_number);
 
-	printf("aronnessonserri\n");
 	free_stack(gb.ex_stack);
-	printf("aronnessonserri\n");
 	free(gb.buff);
-	printf("aronnessonserri\n");
 	if (gb.fp != NULL)
 		fclose(gb.fp);
 	exit(EXIT_FAILURE);
