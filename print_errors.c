@@ -9,7 +9,7 @@
 void print_error(char *str)
 {
 	if (strcmp(str, "monty_file") == 0)
-		fprintf(stderr, "Error: USAGE: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 	else if (strcmp(str, "can't_open") == 0)
 		fprintf(stderr, "Error: Can't open file %s\n", gb.ex_file);
 	else if (strcmp(str, "invalid_instruction") == 0)
